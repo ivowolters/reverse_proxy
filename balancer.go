@@ -20,8 +20,9 @@ func (c *Counter) rotate() int {
 	if c.count >= len(endpoints) {
 		c.count = 0
 	}
+	count := c.count
 	c.mu.Unlock()
-	return c.count
+	return count
 }
 
 var counter Counter
