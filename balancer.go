@@ -4,9 +4,10 @@ import (
 	"sync"
 )
 
-var endpoints = [2]string{
+var endpoints = [3]string{
 	"https://www.google.com/",
 	"https://www.tweakers.net/",
+	"https://www.nos.nl/",
 }
 
 type Counter struct {
@@ -14,7 +15,7 @@ type Counter struct {
 	count int
 }
 
-func (c *Counter) rotate() int {
+func (c *Counter) Rotate() int {
 	c.mu.Lock()
 	c.count += 1
 	if c.count >= len(endpoints) {
@@ -28,6 +29,6 @@ func (c *Counter) rotate() int {
 var counter Counter
 
 func fetchUrl() string {
-	count := counter.rotate()
+	count := counter.Rotate()
 	return endpoints[count]
 }
