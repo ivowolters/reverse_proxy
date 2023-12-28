@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
@@ -10,17 +9,9 @@ import (
 )
 
 func main() {
-	fmt.Println("dsafasdf")
 	app := fiber.New()
 
 	app.Use(cors.New())
-
-	// app.Use(func(c *fiber.Ctx) error {
-	// 	if c.Is("json") {
-	// 		return c.Next()
-	// 	}
-	// 	return c.SendString("Only JSON allowed!")
-	// })
 
 	app.Get("/", func(c *fiber.Ctx) error {
 
