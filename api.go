@@ -14,11 +14,8 @@ func main() {
 	app.Use(cors.New())
 
 	app.Get("/", func(c *fiber.Ctx) error {
-
 		url := fetchUrl()
-
 		proxy.DoRedirects(c, url, 3)
-
 		return nil
 	})
 
