@@ -4,11 +4,7 @@ import (
 	"sync"
 )
 
-var endpoints = [3]string{
-	"https://www.google.com/",
-	"https://www.tweakers.net/",
-	"https://www.nos.nl/",
-}
+var endpoints = []string{}
 
 type Counter struct {
 	mu    sync.Mutex
